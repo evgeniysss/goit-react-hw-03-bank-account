@@ -1,0 +1,21 @@
+.historyContainer {
+  width: 100%;
+  font-size: 20px;
+  border-collapse: collapse;
+  text-align: center;
+}
+th,
+td:first-child {
+  background: #1190ff;
+  color: white;
+  padding: 15px 25px;
+}
+th,
+td {
+  border-style: solid;
+  border-width: 3px;
+  border-color: rgb(219, 219, 219);
+}
+td {
+  background: #dae5f0;
+}
