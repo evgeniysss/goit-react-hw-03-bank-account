@@ -16,18 +16,39 @@ export default class Dashboard extends Component {
 
   componentDidMount() {
     const saved = localStorage.getItem('transactions');
+    const localBalance = localStorage.getItem('balance');
     if (saved) {
       const transactions = JSON.parse(saved);
       this.setState({ transactions });
     }
+    if (localBalance) {
+      const balance = JSON.parse(localBalance);
+      this.setState({ balance });
+    }
   }
 
   componentDidUpdate(prevState) {
-    const { transactions } = this.state;
+    const { transactions, balance } = this.state;
     if (prevState.tasks !== transactions) {
       localStorage.setItem('transactions', JSON.stringify(transactions));
+      localStorage.setItem('balance', JSON.stringify(balance));
     }
   }
+
+  // componentDidMount() {
+  //   const saved = localStorage.getItem('transactions');
+  //   if (saved) {
+  //     const transactions = JSON.parse(saved);
+  //     this.setState({ transactions });
+  //   }
+  // }
+
+  // componentDidUpdate(prevState) {
+  //   const { transactions } = this.state;
+  //   if (prevState.tasks !== transactions) {
+  //     localStorage.setItem('transactions', JSON.stringify(transactions));
+  //   }
+  // }
 
   onDeposit = moneyTransaction => {
     if (moneyTransaction === 0) {
